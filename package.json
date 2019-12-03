@@ -1,0 +1,43 @@
+{
+  "name": "serverfact",
+  "version": "1.0.0",
+  "description": "server nodejs with typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register test/**.ts",
+    "start": "npm run build:live",
+    "build": "tsc -p .",
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
+    "eslint": "eslint src/**/*.ts",
+    "eslint:fix": "eslint src/**/*.ts --fix"
+  },
+  "keywords": [],
+  "author": "Diego Tinitana",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "2.8.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "morgan": "1.9.1"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.5",
+    "@types/mocha": "5.2.7",
+    "@types/node": "12.12.11",
+    "@typescript-eslint/eslint-plugin": "2.8.0",
+    "@typescript-eslint/parser": "2.8.0",
+    "chai": "4.2.0",
+    "eslint": "6.7.0",
+    "husky": "3.1.0",
+    "mocha": "6.2.2",
+    "nodemon": "2.0.1",
+    "ts-node": "8.5.2",
+    "typescript": "3.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint && npm run test"
+    }
+  }
+}
